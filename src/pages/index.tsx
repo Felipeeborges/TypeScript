@@ -6,6 +6,34 @@ import Card from "@/components/Card"
 const nome = 'Felipe Borges'
 let canal = 'Curso Type Script'
 
+// Criando uma lista de produtos
+const produtos = [
+  {
+    produto:'Mouse',
+    valor:10.9,
+    desconto:0,
+    disponivel:true
+  },
+  {
+    produto:'Teclado',
+    valor:150.9,
+    desconto:0,
+    disponivel:true
+  },
+  {
+    produto:'Monitor',
+    valor:1058.9,
+    desconto:0,
+    disponivel:true
+  },
+  {
+    produto:'Mac',
+    valor:1780.9,
+    desconto:0,
+    disponivel:false
+  },
+]
+
 // Função que retorna o valor da constante 'nome'
 function retnome() {
   return nome
@@ -31,8 +59,9 @@ export default function Home() {
         <div>{canal}</div>
       </div>
 
-      <div className='flex justify-center gap-3'>
+      <br />
 
+      <div className='flex justify-center gap-3'>
         <Card produto={'Mouse'} valor={50.00} desconto={0.2} funcao={calcDesc} />
         <Card produto={'Teclado'} valor={10.00} desconto={0.5} funcao={calcDesc} />
         <Card produto={'Tecla'} valor={5.00} desconto={0.9} funcao={calcDesc} />  
@@ -41,7 +70,24 @@ export default function Home() {
         <Card produto={'Mouse Pad'} valor={45.00} desconto={0} funcao={calcDesc} />
         <Card produto={'Iphone'} valor={5000.00} desconto={8.9} funcao={calcDesc2} />  
         <Card produto={'Celular'} valor={4512.00} desconto={12.2} funcao={calcDesc2} />    
-      </div>    
+      </div>
+
+      <br />
+
+      <div className='flex justify-center gap-3'>
+
+        {
+          produtos.map((e:any)=>{ // Criando um map para mapear os produtos existentes na lista produtos
+            if(e.disponivel){
+              return(
+                <Card produto={e.produto} valor={e.valor} desconto={e.desconto} funcao={e.funcao}></Card>
+              )
+            }
+          })
+        }
+
+      </div> 
+
     </div>
   )// Componente principal da página inicial
 }
