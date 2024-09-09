@@ -6,33 +6,6 @@ import Card from "@/components/Card"
 const nome = 'Felipe Borges'
 let canal = 'Curso Type Script'
 
-// Criando uma lista de produtos
-const produtos = [
-  {
-    produto:'Mouse',
-    valor:10.9,
-    desconto:0,
-    disponivel:true
-  },
-  {
-    produto:'Teclado',
-    valor:150.9,
-    desconto:0,
-    disponivel:true
-  },
-  {
-    produto:'Monitor',
-    valor:1058.9,
-    desconto:0,
-    disponivel:true
-  },
-  {
-    produto:'Mac',
-    valor:1780.9,
-    desconto:0,
-    disponivel:false
-  },
-]
 
 // Função que retorna o valor da constante 'nome'
 function retnome() {
@@ -73,21 +46,7 @@ export default function Home() {
       </div>
 
       <br />
-
-      <div className='flex justify-center gap-3'>
-
-        {
-          produtos.map((e:any)=>{ // Criando um map para mapear os produtos existentes na lista produtos
-            if(e.disponivel){
-              return(
-                <Card produto={e.produto} valor={e.valor} desconto={e.desconto} funcao={e.funcao}></Card>
-              )
-            }
-          })
-        }
-
-      </div> 
-
+      
     </div>
   )// Componente principal da página inicial
 }
