@@ -1,4 +1,5 @@
 import Card from "@/components/Card"
+import Topo from "@/components/Topo"
 
 
 // Criando uma lista de produtos
@@ -41,16 +42,19 @@ function calcDesc2(v: number, d: number) {
 
 export default function produtosPagina() {
   return (
-    <div className='flex justify-center gap-3'>
-      {
-        produtos.map((e: any) => { // Criando um map para mapear os produtos existentes na lista produtos
-          if (e.disponivel) {
-            return (
-              <Card produto={e.produto} valor={e.valor} desconto={e.desconto} funcao={e.funcao}></Card>
-            )
-          }
-        })
-      }
+    <div>
+        <Topo/>
+      <div className='flex justify-center gap-3'>
+        {
+          produtos.map((e: any) => { // Criando um map para mapear os produtos existentes na lista produtos
+            if (e.disponivel) {
+              return (
+                <Card produto={e.produto} valor={e.valor} desconto={e.desconto} funcao={e.funcao}></Card>
+              )
+            }
+          })
+        }
+      </div>
     </div>
   )
 }
